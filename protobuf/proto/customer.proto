@@ -1,0 +1,23 @@
+syntax = "proto3";
+package asm;
+option go_package = "./;pb";
+
+
+service CustomerService{
+    rpc CreateCustomer (Customer) returns (Customer);
+    rpc FindCustomerById (FindCustomerRequest) returns (Customer);
+    rpc UpdateCustomer (Customer) returns (Customer);
+}
+
+message Customer{
+	string id = 1;
+    string name = 2;
+    string password = 3;
+	string address = 4;
+	int64 phone = 5; 
+    string email = 7;
+}
+
+message FindCustomerRequest{
+    string id = 1;
+}
