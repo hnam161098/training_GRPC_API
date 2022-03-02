@@ -46,12 +46,6 @@ func (h *BookingHandler) CancelBooking(ctx context.Context, in *pb.CancelRequest
 		return nil, err
 	}
 
-	// return &pb.Booking{
-	// 	Id:         newBooking.ID,
-	// 	Status:     newBooking.Status,
-	// 	CustomerId: newBooking.Customer_id,
-	// 	Code:       newBooking.Code,
-	// }, nil
 	result := mapping.MappingBookingModel(newBooking)
 	return result, nil
 }
