@@ -4,6 +4,7 @@ import (
 	"booking/protobuf/pb"
 	"booking/service/grpc/customer/handler"
 	"booking/service/grpc/customer/repositories"
+	"booking/service/transport"
 	"fmt"
 	"log"
 	"net"
@@ -13,7 +14,7 @@ import (
 )
 
 func main() {
-	listen, err := net.Listen("tcp", ":2222")
+	listen, err := net.Listen("tcp", transport.CustomerGRPC)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -28,6 +29,6 @@ func main() {
 	s := grpc.NewServer()
 	reflection.Register(s)
 	pb.RegisterCustomerServiceServer(s, h)
-	fmt.Println("port: 2222")
+	fmt.Println("Customer GRPC run port: 9000")
 	s.Serve(listen)
 }
