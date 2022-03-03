@@ -39,6 +39,7 @@ func MappingCustomerRequestForUpdateCustomer(in *requests.CustomerUpdateRequest)
 
 func MappingCustomerResponseForUpdateCustomer(in *pb.Customer) *responses.CustomerResponse {
 	return &responses.CustomerResponse{
+		ID:       in.Id,
 		Name:     in.Name,
 		Password: in.Password,
 		Address:  in.Address,
@@ -55,6 +56,7 @@ func MappingCustomerRequestForFindCustomerById(in *requests.FindCustomerRequest)
 
 func MappingCustomerResponseForFindCustomerById(in *pb.Customer) responses.CustomerResponse {
 	return responses.CustomerResponse{
+		ID:       in.Id,
 		Name:     in.Name,
 		Password: in.Password,
 		Address:  in.Address,

@@ -22,8 +22,8 @@ func Run() {
 
 	//creat routes
 	g.POST("/booking/create", h.CreateBookingHandler)
-	g.POST("/booking/cancel", h.CancelBookingHandler)
+	g.PUT("/booking/cancel", h.CancelBookingHandler)
 	g.POST("/booking/view", h.FindBookingByCodeHandler)
-	fmt.Println("Booking API run port: 9010")
+	fmt.Println("Booking API run port: 10010")
 	g.Run(transport.BookingAPI)
 }
