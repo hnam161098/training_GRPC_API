@@ -16,8 +16,8 @@ func Run() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	peopleClient := pb.NewCustomerServiceClient(customerConn)
-	h := handler.NewCustomerHandler(peopleClient)
+	customerClient := pb.NewCustomerServiceClient(customerConn)
+	h := handler.NewCustomerHandler(customerClient)
 	g := gin.Default()
 
 	// routes
