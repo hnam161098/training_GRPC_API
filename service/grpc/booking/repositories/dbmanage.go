@@ -1,6 +1,7 @@
 package repositories
 
 import (
+	"booking/service/conf"
 	models "booking/service/grpc/booking/model"
 
 	"gorm.io/driver/postgres"
@@ -12,7 +13,7 @@ type dbManager struct {
 }
 
 func NewDBManager() (BookingRepository, error) {
-	db, err := gorm.Open(postgres.Open("host=localhost user=postgres password=12345 dbname=booking port=5432 sslmode=disable TimeZone=Asia/Ho_Chi_Minh"))
+	db, err := gorm.Open(postgres.Open(conf.DB_URL))
 	if err != nil {
 		return nil, err
 	}
